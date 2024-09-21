@@ -1,0 +1,120 @@
+/* General styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-size: 400% 400%; /* Added to allow the gradient to move */
+    background-image: linear-gradient(45deg, #f0e68c, #ff6347, #87cefa, #ff69b4); /* Gradient colors */
+    animation: gradientBG 10s ease infinite; /* Gradient background animation */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Gradient animation */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Birthday theme wrapper */
+.birthday-theme {
+    text-align: center;
+}
+
+/* Flipbook container */
+.book {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    perspective: 2000px; /* Create a 3D perspective */
+    margin: 20px auto;
+}
+
+/* Pages inside the book */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 1s ease;
+    transform-origin: left;
+    backface-visibility: hidden;
+}
+
+.page img {
+    max-width: 100%;
+    max-height: 70%;
+}
+
+.page p {
+    font-size: 18px;
+    color: #333;
+    padding: 10px;
+}
+
+/* Buttons */
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff6384;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff3d60;
+}
+
+/* Flipping effect for pages */
+.page-flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Left side of the book */
+.left-page {
+    transform-origin: right;
+}
+
+/* Right side of the book */
+.right-page {
+    transform-origin: left;
+}
+
+/* Flying love emojis */
+.emoji {
+    position: absolute;
+    bottom: -50px;
+    font-size: 40px;
+    opacity: 0;
+    animation: fly 5s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        opacity: 0;
+        transform: translateX(0) scale(0.5);
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) translateX(100px) scale(1);
+    }
+}
+
